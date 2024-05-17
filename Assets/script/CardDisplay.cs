@@ -6,17 +6,17 @@ using TMPro;
 
 public class CardDisplay : MonoBehaviour
 {
-
-    public TextMeshProUGUI CardClass;
-    public TextMeshProUGUI CardPoint;
-    public TextMeshProUGUI CardMarks;
+    //文本显示
+    public Text CardClass;
+    public Text CardPoint;
+    public Text CardMarks;
 
     public Image Background;
 
     public Card card;
     void Start()
     {
-        
+        ShowCard();
     }
     void Update()
     {
