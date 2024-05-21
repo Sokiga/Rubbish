@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GetCard : MonoBehaviour
 {
-    //存储链表
+    //存储列表
     public TextAsset CardData;
     public List<Card> CardList = new List<Card>();
     void Start()
@@ -19,7 +19,7 @@ public class GetCard : MonoBehaviour
     }
     public void LoadCardData() 
     {
-        //读取链表，逗号分割
+        //读取列表，逗号分割
         string[] datarow = CardData.text.Split('\n');
         foreach (var row in datarow) 
         {
