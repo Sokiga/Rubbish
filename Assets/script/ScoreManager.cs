@@ -10,3 +10,11 @@ public class ScoreManager : MonoBehaviour
         return 0;
     }
 }
+
+[System.Serializable]
+public enum HandType
+{
+    Battery,
+    BigBattery,
+    SuperBattery,
+}
