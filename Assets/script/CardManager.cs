@@ -6,12 +6,25 @@ using UnityEngine.Rendering;
 
 public class CardManager : MonoBehaviour
 {
+    public static CardManager instance;
     public TextAsset cardData;
     public GameObject cardPrefab;
     public Transform cardPool;
 
     public List<Card> deck; // 牌堆
     public List<Card> hand; // 手牌
+    public List<CardDisplay> handCardData;
+    public List<Card> discard;// 弃牌
+
+    public bool DeleteMode = false;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -96,6 +109,40 @@ public class CardManager : MonoBehaviour
         {
             CardDisplay currentCard = Instantiate(cardPrefab, cardPool).GetComponent<CardDisplay>();
             currentCard.InitData(card);
+            handCardData.Add(currentCard);
+        }
+    }
+
+    public void DiscardCard()
+    {
+        int counter = 0;
+        foreach (CardDisplay cardDisplay in handCardData)
+        {
+            if (cardDisplay.isSelected)
+            {
+                Card card = hand.Find(x => x.Id == cardDisplay.Id);
+                handCardData.Remove(cardDisplay);
+                hand.Remove(card);
+                Destroy(cardDisplay.gameObject);
+                counter++;
+            }
+        }
+
+        foreach (Card card in deck.GetRange(0, counter))
+        {
+            hand.Add(card);
+            CardDisplay currentCard = Instantiate(cardPrefab, cardPool).GetComponent<CardDisplay>();
+            currentCard.InitData(card);
+            handCardData.Add(currentCard);
+        }
+    }
+
+    public void ChangeDeleteMode()
+    {
+        DeleteMode = !DeleteMode;
+        foreach (CardDisplay cardDisplay in handCardData)
+        {
+            cardDisplay.isSelected = false;
         }
     }
 }

@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.EventSystems;
 
-public class CardDisplay : MonoBehaviour
+public class CardDisplay : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     //文本显示
     public Text CardClass;
     public Text CardPoint;
     public Text CardMarks;
     public bool isSelected;
-
-    
+    public int Id;
 
     public Image Background;
 
@@ -31,8 +30,23 @@ public class CardDisplay : MonoBehaviour
                 break;
         }
 
+        Id = card.Id;
         CardPoint.text = card.Value.ToString();
         CardMarks.text = card.Score.ToString();
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("OnPinterClick" + eventData.ToString());
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("enter");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("exit");
+    }
 }

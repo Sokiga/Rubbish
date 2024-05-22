@@ -406,7 +406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -335}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7741190955514882899
@@ -462,6 +462,8 @@ MonoBehaviour:
   CardClass: {fileID: 8823620999738572498}
   CardPoint: {fileID: 5800097277608591648}
   CardMarks: {fileID: 8160662637113523413}
+  isSelected: 0
+  Id: 0
   Background: {fileID: 1229553215345150879}
 --- !u!1 &6667503842977991055
 GameObject:
