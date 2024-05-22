@@ -38,6 +38,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("OnPinterClick" + eventData.ToString());
+        if (CardManager.instance.DeleteMode)
+        {
+            isSelected = !isSelected;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

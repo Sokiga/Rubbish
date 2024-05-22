@@ -6,81 +6,77 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    int BasicScore = 0;
-    int BasicTime = 0;
-    public enum HandType
+    public static ScoreManager instance;
+    private void Awake()
     {
-        SuperBattery,
-        BigBattery,
-        LevelTen,
-        None
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
-    public static HandType EvaluateHand(List<Card> hand)
+    public int EvaluateHand(List<Card> hand)
     {
-        int tenCount = 0;
+        if (hand.All(x => x.Suit == hand[0].Suit) && hand.All(x => x.Value >= 10))
+        {
+            return 10000;
+        }
+        else if (hand.All(x => x.Suit == hand[0].Suit) && !hand.All(x => x.Value >= 10))
+        {
+            return 2000;
+        }
+
+
+        int[] points = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10 };
+
+        int sum = 0;
+        foreach (Card card in hand)
+        {
+            sum += card.Value;
+        }
+
+        int remainingSum = 0;
         for (int i = 0; i < 5; i++)
         {
             for (int j = i + 1; j < 5; j++)
             {
                 for (int k = j + 1; k < 5; k++)
                 {
-                    if ((hand[i].Value + hand[j].Value + hand[k].Value) % 10 == 0)
+                    int total = points[hand[i].Value] + points[hand[j].Value] + points[hand[k].Value];
+                    if (total % 10 == 0)
                     {
-                        tenCount++;
+                        // 计算剩余两张牌的点数之和的个位数
+                        remainingSum = (sum - total) % 10;
                     }
                 }
             }
         }
 
-        if (tenCount >= 3)
+        switch (remainingSum)
         {
-            // 检查是否为同花色
-            Suit suit = hand[0].Suit;
-            if (hand.All(card => card.Suit == suit))
-            {
-                // 检查点数是否满足条件
-                if (hand.All(card => card.Value > 10))
-                {
-                    int BasicScore = 500;
-                    int BasicTime = 20;
-                }
-            }
-            // 如果没有满足条件的牌型，返回BigBattery
-            return HandType.BigBattery;
-
-            if (hand.All(card => card.Value < 10))
-            {
-                int BasicScore = 100;
-                int BasicTime = 20;
-            }
-            // 如果没有满足条件的牌型，返回LevelTen
-            return HandType.LevelTen;
-            
-            // 继续计算剩余两张牌的点数和
-            int sum = hand[4].Value + hand[0].Value;
-            int cowNumber = sum % 10;
-            if (cowNumber == 0)
-            {
-                return HandType.LevelTen;
-            }
-            return HandType.None;
-            
-
+            case 0:
+                return 500;
+            case 9:
+                return 400;
+            case 8:
+                return 300;
+            case 7:
+                return 200;
+            case 6:
+                return 100;
+            case 5:
+                return 80;
+            case 4:
+                return 60;
+            case 3:
+                return 40;
+            case 2:
+                return 20;
+            case 1:
+                return 10;
+            default:
+                return 0;
         }
 
-        else if (tenCount >= 3)
-        {
-            
-        }
-
-        // 如果没有找到三张牌可以组成10的整数倍，则返回None
-        return HandType.None;
-    }
-    public int CalculateScore(HandType handType, int cowCount)
-    {
-        // 实现计算积分的逻辑
-
-        return 0;
     }
 }

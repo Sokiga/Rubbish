@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
@@ -10,11 +12,12 @@ public class CardManager : MonoBehaviour
     public TextAsset cardData;
     public GameObject cardPrefab;
     public Transform cardPool;
+    public Transform score;
 
     public List<Card> deck; // 牌堆
     public List<Card> hand; // 手牌
     public List<CardDisplay> handCardData;
-    public List<Card> discard;// 弃牌
+    public List<CardDisplay> discard;// 弃牌
 
     public bool DeleteMode = false;
 
@@ -105,6 +108,7 @@ public class CardManager : MonoBehaviour
         hand = new List<Card>(deck.GetRange(0, 5));
         ShuffleDeck();
 
+        handCardData.Clear();
         foreach (Card card in hand)
         {
             CardDisplay currentCard = Instantiate(cardPrefab, cardPool).GetComponent<CardDisplay>();
@@ -121,18 +125,24 @@ public class CardManager : MonoBehaviour
             if (cardDisplay.isSelected)
             {
                 Card card = hand.Find(x => x.Id == cardDisplay.Id);
-                handCardData.Remove(cardDisplay);
                 hand.Remove(card);
-                Destroy(cardDisplay.gameObject);
+                discard.Add(cardDisplay);
                 counter++;
             }
         }
 
+        foreach (CardDisplay display in discard)
+        {
+            Destroy(display.gameObject);
+            handCardData.Remove(display);
+        }
+        discard.Clear();
+
         foreach (Card card in deck.GetRange(0, counter))
         {
-            hand.Add(card);
             CardDisplay currentCard = Instantiate(cardPrefab, cardPool).GetComponent<CardDisplay>();
             currentCard.InitData(card);
+            hand.Add(card);
             handCardData.Add(currentCard);
         }
     }
@@ -144,5 +154,11 @@ public class CardManager : MonoBehaviour
         {
             cardDisplay.isSelected = false;
         }
+    }
+
+    public void Submit()
+    {
+        int score = ScoreManager.instance.EvaluateHand(hand);
+        this.score.GetComponent<Text>().text = score.ToString();
     }
 }
