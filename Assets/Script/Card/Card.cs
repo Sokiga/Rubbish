@@ -23,9 +23,9 @@ public struct CardData
 
 public class Card : MonoBehaviour, IPointerClickHandler
 {
-    TMP_Text suitText;
-    TMP_Text valueText;
-    TMP_Text energyText;
+    Text suitText;
+    Text valueText;
+    Text energyText;
     Sprite background;
 
     public CardData cardData;
@@ -33,9 +33,9 @@ public class Card : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
-        suitText = transform.Find("suit").GetComponent<TMP_Text>();
-        valueText = transform.Find("value").GetComponent<TMP_Text>();
-        energyText = transform.Find("energy").GetComponent<TMP_Text>();
+        suitText = transform.Find("suit").GetComponent<Text>();
+        valueText = transform.Find("value").GetComponent<Text>();
+        energyText = transform.Find("energy").GetComponent<Text>();
         background = transform.Find("background").GetComponent<Image>().sprite;
     }
 

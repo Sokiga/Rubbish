@@ -11,7 +11,9 @@ public class CardManager : MonoBehaviour
     public TextAsset cardData;
     public GameObject cardPrefab;
     public Transform cardPool;
-    public Transform score;
+
+    public Text UIDiscardTimes;
+    public Text UIPlayTimes;
 
     [Space(5)]
     [Header("DECK")]
@@ -41,42 +43,6 @@ public class CardManager : MonoBehaviour
     {
         InitializeDeck(cardData); // 初始化牌堆
         DealCard(); // 发初始手牌
-    }
-
-    /// <summary>
-    /// 洗牌
-    /// </summary>
-    private void Shuffle(List<CardData> list)
-    {
-        System.Random random = new System.Random();
-        int n = list.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = random.Next(n + 1);
-            CardData value = list[k];
-            list[k] = list[n];
-            list[n] = value;
-        }
-    }
-
-    /// <summary>
-    /// 抽牌
-    /// </summary>
-    private void DrawCard(int number)
-    {
-        Shuffle(deck);
-
-        List<CardData> handDeck = new List<CardData>(deck.GetRange(0, number));
-        deck.RemoveAll(x => handDeck.Contains(x));
-
-        handCardDeck.Clear();
-        foreach (CardData card in handDeck)
-        {
-            Card currentCard = Instantiate(cardPrefab, cardPool).GetComponent<Card>();
-            currentCard.InitCard(card);
-            handCardDeck.Add(currentCard);
-        }
     }
 
     /// <summary>
@@ -166,7 +132,7 @@ public class CardManager : MonoBehaviour
     /// </summary>
     public void PlayCard()
     {
-        ScoreManager.instance.CalculateAndCheckTotalEnergy(handCardDeck);
+        ScoreManager.instance.DetermineCardType(handCardDeck);
 
         foreach (Card handCard in handCardDeck)
         {
@@ -176,5 +142,40 @@ public class CardManager : MonoBehaviour
         DrawCard(5);
     }
 
+    /// <summary>
+    /// 洗牌
+    /// </summary>
+    private void Shuffle(List<CardData> list)
+    {
+        System.Random random = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = random.Next(n + 1);
+            CardData value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+    }
+
+    /// <summary>
+    /// 抽牌
+    /// </summary>
+    private void DrawCard(int number)
+    {
+        Shuffle(deck);
+
+        List<CardData> handDeck = new List<CardData>(deck.GetRange(0, number));
+        deck.RemoveAll(x => handDeck.Contains(x));
+
+        handCardDeck.Clear();
+        foreach (CardData card in handDeck)
+        {
+            Card currentCard = Instantiate(cardPrefab, cardPool).GetComponent<Card>();
+            currentCard.InitCard(card);
+            handCardDeck.Add(currentCard);
+        }
+    }
 
 }

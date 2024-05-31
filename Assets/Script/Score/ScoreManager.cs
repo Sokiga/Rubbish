@@ -1,17 +1,20 @@
-using JetBrains.Annotations;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Collections;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int targetEnergy;
-    public int currentTotalEnergy;
-    public int currentEnergy;
-    public int currentRatio;
+    public Text UITargetEnergy;
+    public Text UITotalEnergy;
+    public Text UICurrentEnergy;
+    public Text UICurrentRatio;
+
+    int targetEnergy;
+    int totalEnergy;
+    int currentEnergy;
+    int currentRatio;
 
     public static ScoreManager instance;
     private void Awake()
@@ -22,7 +25,34 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void CalculateAndCheckTotalEnergy(List<Card> handDeck)
+    /// <summary>
+    /// 增加能量
+    /// </summary>
+    public void AddEnergy(int energy)
+    {
+        currentEnergy += energy;
+    }
+
+    /// <summary>
+    /// 增加倍率
+    /// </summary>
+    public void AddRatio(int ratio)
+    {
+        currentRatio += ratio;
+    }
+
+    /// <summary>
+    /// 计算总能量
+    /// </summary>
+    public int CalculateTotalEnergy()
+    {
+        return totalEnergy = currentEnergy * currentRatio;
+    }
+
+    /// <summary>
+    /// 确定牌型并给定初始能量与倍率
+    /// </summary>
+    public void DetermineCardType(List<Card> handDeck)
     {
         currentEnergy = 0;
         currentRatio = 0;
