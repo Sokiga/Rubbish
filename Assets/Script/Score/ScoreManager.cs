@@ -10,9 +10,10 @@ public class ScoreManager : MonoBehaviour
     public Text UITotalEnergy;
     public Text UICurrentEnergy;
     public Text UICurrentRatio;
+    public Text UICardType;
 
-    int targetEnergy;
-    int totalEnergy;
+    public int targetEnergy;
+    public int totalEnergy;
     int currentEnergy;
     int currentRatio;
 
@@ -62,15 +63,13 @@ public class ScoreManager : MonoBehaviour
 
         if (IsGreatBoom(points, handDeck, firstSuit))
         {
-            currentEnergy = 200;
-            currentRatio = 20;
+            InitializeUIAndData(200, 20);
             return;
         }
 
         if (IsBoom(points))
         {
-            currentEnergy = 150;
-            currentRatio = 20;
+            InitializeUIAndData(150, 20);
             return;
         }
 
@@ -92,6 +91,17 @@ public class ScoreManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// 初始化UI与数据
+    /// </summary>
+    private void InitializeUIAndData(int energy, int ratio)
+    {
+        currentEnergy = energy;
+        UICurrentEnergy.text = energy.ToString();
+        currentRatio = ratio;
+        UICurrentRatio.text = ratio.ToString();
     }
 
     /// <summary>
@@ -142,44 +152,34 @@ public class ScoreManager : MonoBehaviour
         switch (niu)
         {
             case 0:
-                currentEnergy = 125;
-                currentRatio = 10;
+                InitializeUIAndData(125, 10);
                 break;
             case 1:
-                currentEnergy = 5;
-                currentRatio = 10;
+                InitializeUIAndData(5, 10);
                 break;
             case 2:
-                currentEnergy = 5;
-                currentRatio = 10;
+                InitializeUIAndData(5, 10);
                 break;
             case 3:
-                currentEnergy = 5;
-                currentRatio = 10;
+                InitializeUIAndData(5, 10);
                 break;
             case 4:
-                currentEnergy = 5;
-                currentRatio = 10;
+                InitializeUIAndData(5, 10);
                 break;
             case 5:
-                currentEnergy = 25;
-                currentRatio = 10;
+                InitializeUIAndData(25, 10);
                 break;
             case 6:
-                currentEnergy = 25;
-                currentRatio = 10;
+                InitializeUIAndData(25, 10);
                 break;
             case 7:
-                currentEnergy = 25;
-                currentRatio = 10;
+                InitializeUIAndData(25, 10);
                 break;
             case 8:
-                currentEnergy = 25;
-                currentRatio = 10;
+                InitializeUIAndData(25, 10);
                 break;
             case 9:
-                currentEnergy = 25;
-                currentRatio = 10;
+                InitializeUIAndData(25, 10);
                 break;
             default:
                 break;

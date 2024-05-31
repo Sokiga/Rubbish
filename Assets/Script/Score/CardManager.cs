@@ -114,16 +114,19 @@ public class CardManager : MonoBehaviour
     {
         // 将所选中的手牌从手牌中删除并添加到牌堆中
         int counter = 0;
+        List<Card> cardToDelete = new List<Card>();
         foreach (Card handCard in handCardDeck)
         {
             if (handCard.isSelected)
             {
-                handCardDeck.Remove(handCard);
+                cardToDelete.Add(handCard);
                 deck.Add(handCard.cardData);
+                Destroy(handCard.gameObject);
                 counter++;
             }
         }
 
+        handCardDeck.RemoveAll(x => cardToDelete.Contains(x));
         DrawCard(counter);
     }
 
@@ -136,9 +139,10 @@ public class CardManager : MonoBehaviour
 
         foreach (Card handCard in handCardDeck)
         {
-            handCardDeck.Remove(handCard);
             deck.Add(handCard.cardData);
+            Destroy(handCard.gameObject);
         }
+        handCardDeck.Clear();
         DrawCard(5);
     }
 
@@ -169,7 +173,6 @@ public class CardManager : MonoBehaviour
         List<CardData> handDeck = new List<CardData>(deck.GetRange(0, number));
         deck.RemoveAll(x => handDeck.Contains(x));
 
-        handCardDeck.Clear();
         foreach (CardData card in handDeck)
         {
             Card currentCard = Instantiate(cardPrefab, cardPool).GetComponent<Card>();
