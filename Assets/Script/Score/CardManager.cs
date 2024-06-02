@@ -8,10 +8,13 @@ using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
+    [Header("DATA")]
     public TextAsset cardData;
     public GameObject cardPrefab;
-    public Transform cardPool;
 
+    [Space(5)]
+    [Header("UI")]
+    public Transform cardPool;
     public Text UIDiscardTimes;
     public Text UIPlayTimes;
 
@@ -21,7 +24,8 @@ public class CardManager : MonoBehaviour
     public List<CardData> deck;
     [Tooltip("手牌")]
     public List<Card> handCardDeck;
-    // public List<Buff> buffDeck;
+    [Tooltip("BUFF")]
+    public List<Buff> buffDeck;
 
     [Space(5)]
     [Tooltip("弃牌次数")]
@@ -136,6 +140,7 @@ public class CardManager : MonoBehaviour
     public void PlayCard()
     {
         ScoreManager.instance.DetermineCardType(handCardDeck);
+        ScoreManager.instance.CalculateTotalEnergy(handCardDeck,buffDeck);
 
         foreach (Card handCard in handCardDeck)
         {

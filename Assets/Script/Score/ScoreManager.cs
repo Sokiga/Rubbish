@@ -1,21 +1,25 @@
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    [Header("UI")]
     public Text UITargetEnergy;
     public Text UITotalEnergy;
     public Text UICurrentEnergy;
     public Text UICurrentRatio;
+    public Text UICurrentTechnologyPoints;
     public Text UICardType;
 
+    [Space(5)]
+    [Header("DATA")]
     public int targetEnergy;
     public int totalEnergy;
     int currentEnergy;
     int currentRatio;
+    int currentTechnologyPoints;
 
     public static ScoreManager instance;
     private void Awake()
@@ -42,23 +46,15 @@ public class ScoreManager : MonoBehaviour
         currentRatio += ratio;
     }
 
-    /// <summary>
-    /// 计算总能量
-    /// </summary>
-    public int CalculateTotalEnergy()
-    {
-        return totalEnergy = currentEnergy * currentRatio;
-    }
 
+
+    #region 判定牌型
     /// <summary>
     /// 确定牌型并给定初始能量与倍率
     /// </summary>
     public void DetermineCardType(List<Card> handDeck)
     {
-        currentEnergy = 0;
-        currentRatio = 0;
         Suit firstSuit = handDeck[0].cardData.suit;
-
         int[] points = handDeck.Select(x => Mathf.Min(10, x.cardData.value)).ToArray();
 
         if (IsGreatBoom(points, handDeck, firstSuit))
@@ -185,5 +181,46 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
     }
+    #endregion 判定牌型
 
+    #region  计算总能量
+    /// <summary>
+    /// 计算总能量
+    /// </summary>
+    public void CalculateTotalEnergy(List<Card> cards, List<Buff> buffs)
+    {
+        CalculateValue(cards);
+        CalculateBuff(buffs);
+
+        totalEnergy += currentEnergy * currentRatio;
+        UITotalEnergy.text = totalEnergy.ToString();
+    }
+
+    /// <summary>
+    /// 计算所有牌的值
+    /// </summary>
+    /// <param name="handDeck"></param>
+    private void CalculateValue(List<Card> handDeck)
+    {
+        int[] points = handDeck.Select(x => x.cardData.energy).ToArray();
+
+        foreach (int energy in points)
+        {
+            currentEnergy += energy;
+            UICurrentEnergy.text = currentEnergy.ToString();
+        }
+    }
+
+    /// <summary>
+    /// 计算所有BUFF
+    /// </summary>
+    /// <param name="buffs"></param>
+    private void CalculateBuff(List<Buff> buffs)
+    {
+        foreach (Buff buff in buffs)
+        {
+            buff.triggerBuffEvent.CallTriggerBuffEvent(currentEnergy, currentRatio, currentTechnologyPoints);
+        }
+    }
+    #endregion 计算总能量
 }
