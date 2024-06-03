@@ -13,7 +13,6 @@ public enum Rarity
     Peak,
 }
 
-[RequireComponent(typeof(TriggerBuffEvent))]
 public class Buff : MonoBehaviour
 {
     public string buffName;
@@ -25,7 +24,7 @@ public class Buff : MonoBehaviour
     public int energy;
     public int ratio;
     public int technologyPoints;
-    public UnityEvent buffEvent;
+    public UnityEvent<int, int, int> buffEvent;
 
 
     [HideInInspector] public TriggerBuffEvent triggerBuffEvent;
@@ -64,6 +63,10 @@ public class Buff : MonoBehaviour
 
     private void TriggerBuffEvent_OnTriggerBuffEnter(TriggerBuffEvent triggerBuffEvent, TriggerBuffEventArgs triggerBuffEventArgs)
     {
-        buffEvent?.Invoke();
+        buffEvent?.Invoke(
+            triggerBuffEventArgs.currentEnergy,
+            triggerBuffEventArgs.currentRatio,
+            triggerBuffEventArgs.currentTechnologyPoints
+        );
     }
 }

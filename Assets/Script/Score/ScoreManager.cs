@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     [Header("DATA")]
     public int targetEnergy;
     public int totalEnergy;
+    public int niu;
     int currentEnergy;
     int currentRatio;
     int currentTechnologyPoints;
@@ -80,7 +81,7 @@ public class ScoreManager : MonoBehaviour
                     {
                         // 剩下的两张牌的点数之和
                         int remainingSum = points.Sum() - sum;
-                        int niu = remainingSum % 10;
+                        niu = remainingSum % 10;
 
                         MatchEnemyRatio(niu);
                     }
