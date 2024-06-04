@@ -33,6 +33,19 @@ public class Buff : MonoBehaviour
     Text UICost;
     Text UIRarity;
 
+    public void Init(BuffDataSO buffData)
+    {
+        buffName = buffData.buffName;
+        describe = buffData.describe;
+        cost = buffData.cost;
+        sale = buffData.sale;
+        rarity = buffData.rarity;
+
+        energy = buffData.energy;
+        ratio = buffData.ratio;
+        technologyPoints = buffData.technologyPoints;
+    }
+
     private void Awake()
     {
         UIBuffName = transform.Find("BuffName").GetComponent<Text>();

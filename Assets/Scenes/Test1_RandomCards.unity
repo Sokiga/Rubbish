@@ -2658,6 +2658,7 @@ GameObject:
   - component: {fileID: 2107882603}
   - component: {fileID: 2107882602}
   - component: {fileID: 2107882601}
+  - component: {fileID: 2107882604}
   - component: {fileID: 2107882600}
   m_Layer: 0
   m_Name: GameManager
@@ -2697,6 +2698,7 @@ MonoBehaviour:
   UIPlayTimes: {fileID: 1245768576}
   deck: []
   handCardDeck: []
+  buffDeck: []
   discardTimes: 0
   playTimes: 0
 --- !u!114 &2107882602
@@ -2719,6 +2721,7 @@ MonoBehaviour:
   UICardType: {fileID: 48069060}
   targetEnergy: 0
   totalEnergy: 0
+  niu: 0
 --- !u!4 &2107882603
 Transform:
   m_ObjectHideFlags: 0
@@ -2734,6 +2737,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107882604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107882599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc8e6e55036b1e44bb6419b37524a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffPrefab: {fileID: 0}
+  Columns:
+  - {fileID: 1936403892644204095}
+  - {fileID: 1936403892644204094}
+  - {fileID: 1936403892644204093}
+  - {fileID: 1936403892644204092}
 --- !u!1 &2123872272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,6 +3031,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ecfd7a01b0fb449b97d878b4d2055d, type: 3}
+--- !u!224 &1936403892644204092 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5139748708199596770, guid: 50ecfd7a01b0fb449b97d878b4d2055d, type: 3}
+  m_PrefabInstance: {fileID: 1936403892644204091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1936403892644204093 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6968623982252798237, guid: 50ecfd7a01b0fb449b97d878b4d2055d, type: 3}
+  m_PrefabInstance: {fileID: 1936403892644204091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1936403892644204094 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 266609718236531290, guid: 50ecfd7a01b0fb449b97d878b4d2055d, type: 3}
+  m_PrefabInstance: {fileID: 1936403892644204091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1936403892644204095 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7170153240402270794, guid: 50ecfd7a01b0fb449b97d878b4d2055d, type: 3}
+  m_PrefabInstance: {fileID: 1936403892644204091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7093463611036284191
 PrefabInstance:
   m_ObjectHideFlags: 0
