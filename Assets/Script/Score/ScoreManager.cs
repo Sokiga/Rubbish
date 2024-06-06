@@ -31,6 +31,12 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public void SetTargetEnergy(int targetEnergy)
+    {
+        this.targetEnergy = targetEnergy;
+        UITargetEnergy.text = targetEnergy.ToString();
+    }
+
     /// <summary>
     /// 增加能量
     /// </summary>

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [Serializable]
@@ -13,7 +14,9 @@ public enum Rarity
     Peak,
 }
 
-public class Buff : MonoBehaviour
+[RequireComponent(typeof(TriggerBuffEvent))]
+[RequireComponent(typeof(BuffFunction))]
+public class Buff : MonoBehaviour, IPointerClickHandler
 {
     public string buffName;
     public string describe;
@@ -28,6 +31,7 @@ public class Buff : MonoBehaviour
 
 
     [HideInInspector] public TriggerBuffEvent triggerBuffEvent;
+    [HideInInspector] public BuffDataSO buffData;
     Text UIBuffName;
     Text UIDescribe;
     Text UICost;
@@ -44,6 +48,8 @@ public class Buff : MonoBehaviour
         energy = buffData.energy;
         ratio = buffData.ratio;
         technologyPoints = buffData.technologyPoints;
+
+        this.buffData = buffData;
     }
 
     private void Awake()
@@ -81,5 +87,10 @@ public class Buff : MonoBehaviour
             triggerBuffEventArgs.currentRatio,
             triggerBuffEventArgs.currentTechnologyPoints
         );
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        BuffStore.instance.BuyBuff(buffData);
     }
 }

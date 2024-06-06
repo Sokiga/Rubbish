@@ -15,6 +15,7 @@ public class CardManager : MonoBehaviour
     [Space(5)]
     [Header("UI")]
     public Transform cardPool;
+    public Transform buffPool;
     public Text UIDiscardTimes;
     public Text UIPlayTimes;
 
@@ -140,7 +141,7 @@ public class CardManager : MonoBehaviour
     public void PlayCard()
     {
         ScoreManager.instance.DetermineCardType(handCardDeck);
-        ScoreManager.instance.CalculateTotalEnergy(handCardDeck,buffDeck);
+        ScoreManager.instance.CalculateTotalEnergy(handCardDeck, buffDeck);
 
         foreach (Card handCard in handCardDeck)
         {

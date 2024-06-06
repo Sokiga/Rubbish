@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BuffStore : MonoBehaviour
 {
     public GameObject buffPrefab;
     public List<Transform> Columns;
-    List<BuffDataSO> buffs;
+    List<BuffDataSO> buffData;
+    List<Buff> buffs;
 
+    public bool isInStore = false;
 
     public static BuffStore instance;
     private void Awake()
@@ -20,31 +23,34 @@ public class BuffStore : MonoBehaviour
 
     private void Start()
     {
-        buffs = GameResources.Instance.buffDataSOs;
+        buffData = GameResources.Instance.buffDataSOs;
     }
 
     /// <summary>
     /// 购买buff
     /// </summary>
-    public void BuyBuff()
+    public void BuyBuff(BuffDataSO buffData)
     {
-
+        if (isInStore)
+        {
+            Buff buffInstance = Instantiate(buffPrefab, CardManager.instance.buffPool).GetComponent<Buff>();
+            buffInstance.Init(buffData);
+            CardManager.instance.buffDeck.Add(buffInstance);
+        }
     }
 
     /// <summary>
-    /// 将所买的buff添加至商品栏
+    /// 将buff添加至商品栏
     /// </summary>
     public void AddBuffToColumn()
     {
-
+        buffs.Clear();
+        List<BuffDataSO> tempData = HelperUtilities.GetRandomElements(buffData, 4);
+        for (int i = 0; i < tempData.Count; i++)
+        {
+            Buff buffInstance = Instantiate(buffPrefab, Columns[i]).GetComponent<Buff>();
+            buffInstance.Init(tempData[i]);
+            buffs.Add(buffInstance);
+        }
     }
-
-    /// <summary>
-    /// 将所买的buff添加至buff栏
-    /// </summary>
-    public void AddBuffToBuffDeck()
-    {
-
-    }
-
 }
