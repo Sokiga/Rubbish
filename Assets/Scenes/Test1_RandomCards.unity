@@ -2033,7 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632161460}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScorePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2680,8 +2680,8 @@ GameObject:
   - component: {fileID: 2107882602}
   - component: {fileID: 2107882601}
   - component: {fileID: 2107882604}
-  - component: {fileID: 2107882600}
   - component: {fileID: 2107882605}
+  - component: {fileID: 2107882600}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
