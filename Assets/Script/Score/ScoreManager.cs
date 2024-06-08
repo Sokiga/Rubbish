@@ -12,15 +12,24 @@ public class ScoreManager : MonoBehaviour
     public Text UICurrentRatio;
     public Text UICurrentTechnologyPoints;
     public Text UICardType;
+    public Text UIPlayTime;
+    public Text UIDiscardTime;
 
     [Space(5)]
     [Header("DATA")]
     public int targetEnergy;
     public int totalEnergy;
     public int niu;
+    public int getTechnologyPoint;
     int currentEnergy;
     int currentRatio;
-    int currentTechnologyPoints;
+    [SerializeField] int currentTechnologyPoints;
+
+    [Header("出牌与弃牌次数")]
+    public int maxPlayTime = 4;
+    public int maxDiscardTime = 4;
+    [HideInInspector] public int currentPlayTime;
+    [HideInInspector] public int currentDiscardTime;
 
     public static ScoreManager instance;
     private void Awake()
@@ -29,6 +38,14 @@ public class ScoreManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    private void Start()
+    {
+        currentPlayTime = maxPlayTime;
+        UIPlayTime.text = currentPlayTime.ToString();
+        currentDiscardTime = maxDiscardTime;
+        UIDiscardTime.text = currentDiscardTime.ToString();
     }
 
     public void SetTargetEnergy(int targetEnergy)
@@ -230,4 +247,43 @@ public class ScoreManager : MonoBehaviour
         }
     }
     #endregion 计算总能量
+
+    #region 判断
+    /// <summary>
+    /// 是否没有回收次数
+    /// </summary>
+    private bool IsOutPlayTime()
+    {
+        return currentPlayTime <= 0;
+    }
+
+    /// <summary>
+    /// 是否当前分数超过目标分数
+    /// </summary>
+    public bool IsOutTargetEnergy()
+    {
+        return totalEnergy > targetEnergy;
+    }
+
+    public bool CheckIsDown()
+    {
+        if (IsOutTargetEnergy())
+        {
+            currentTechnologyPoints += getTechnologyPoint;
+            UIManager.Instance.ConversionStorePanel();
+            BuffStore.instance.AddBuffToColumn();
+            totalEnergy = 0;
+            UITotalEnergy.text = "0";
+            Debug.Log("win");
+            return true;
+        }
+        else if (IsOutPlayTime())
+        {
+            Debug.Log("fail");
+            return true;
+        }
+
+        return false;
+    }
+    #endregion 判断
 }

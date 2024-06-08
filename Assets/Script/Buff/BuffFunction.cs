@@ -133,7 +133,7 @@ public class BuffFunction : MonoBehaviour
 
     public void IntegratedSystems(int currentEnergy, int currentRatio, int currentTechnologyPoints)
     {
-        for (int i = 0; i < CardManager.instance.playTimes; i++)
+        for (int i = 0; i < ScoreManager.instance.maxPlayTime; i++)
         {
             currentRatio += buff.ratio;
         }
@@ -141,7 +141,7 @@ public class BuffFunction : MonoBehaviour
 
     public void FineManagement(int currentEnergy, int currentRatio, int currentTechnologyPoints)
     {
-        for (int i = 0; i < CardManager.instance.discardTimes; i++)
+        for (int i = 0; i < ScoreManager.instance.maxDiscardTime; i++)
         {
             currentRatio += buff.ratio;
         }
@@ -149,7 +149,7 @@ public class BuffFunction : MonoBehaviour
 
     public void Intelligent(int currentEnergy, int currentRatio, int currentTechnologyPoints)
     {
-        for (int i = 0; i < CardManager.instance.playTimes; i++)
+        for (int i = 0; i < ScoreManager.instance.maxPlayTime; i++)
         {
             currentTechnologyPoints += buff.technologyPoints;
         }
@@ -157,7 +157,7 @@ public class BuffFunction : MonoBehaviour
 
     public void LowCarbonTechnology(int currentEnergy, int currentRatio, int currentTechnologyPoints)
     {
-        for (int i = 0; i < CardManager.instance.discardTimes; i++)
+        for (int i = 0; i < ScoreManager.instance.maxDiscardTime; i++)
         {
             currentTechnologyPoints += buff.technologyPoints;
         }

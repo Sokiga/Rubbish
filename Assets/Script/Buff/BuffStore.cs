@@ -7,8 +7,8 @@ public class BuffStore : MonoBehaviour
 {
     public GameObject buffPrefab;
     public List<Transform> Columns;
-    List<BuffDataSO> buffData;
-    List<Buff> buffs;
+    List<BuffDataSO> buffData = new List<BuffDataSO>();
+    List<Buff> buffs = new List<Buff>();
 
     public bool isInStore = false;
 
@@ -52,5 +52,10 @@ public class BuffStore : MonoBehaviour
             buffInstance.Init(tempData[i]);
             buffs.Add(buffInstance);
         }
+    }
+
+    public void QuitStore()
+    {
+        UIManager.Instance.ConversionSelectPanel();
     }
 }

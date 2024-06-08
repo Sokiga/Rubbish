@@ -16,8 +16,6 @@ public class CardManager : MonoBehaviour
     [Header("UI")]
     public Transform cardPool;
     public Transform buffPool;
-    public Text UIDiscardTimes;
-    public Text UIPlayTimes;
 
     [Space(5)]
     [Header("DECK")]
@@ -28,13 +26,6 @@ public class CardManager : MonoBehaviour
     [Tooltip("BUFF")]
     public List<Buff> buffDeck;
 
-    [Space(5)]
-    [Tooltip("弃牌次数")]
-    public int discardTimes;
-    [Tooltip("出牌次数")]
-    public int playTimes;
-
-
     public static CardManager instance;
     private void Awake()
     {
@@ -44,17 +35,12 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        InitializeDeck(cardData); // 初始化牌堆
-        DealCard(); // 发初始手牌
-    }
-
     /// <summary>
     /// 初始化牌堆，包含39张牌（3种花色，每种花色13张牌）
     /// </summary>
     public void InitializeDeck(TextAsset cardData)
     {
+        deck.Clear();
         var rows = cardData.text.Split("\n");
         foreach (var row in rows)
         {
@@ -117,6 +103,10 @@ public class CardManager : MonoBehaviour
     /// </summary>
     public void DiscardCard()
     {
+        if (ScoreManager.instance.currentDiscardTime == 0) return;
+
+        ScoreManager.instance.currentDiscardTime--;
+        ScoreManager.instance.UIDiscardTime.text = ScoreManager.instance.currentDiscardTime.ToString();
         // 将所选中的手牌从手牌中删除并添加到牌堆中
         int counter = 0;
         List<Card> cardToDelete = new List<Card>();
@@ -140,16 +130,23 @@ public class CardManager : MonoBehaviour
     /// </summary>
     public void PlayCard()
     {
+        ScoreManager.instance.currentPlayTime--;
+        ScoreManager.instance.UIPlayTime.text = ScoreManager.instance.currentPlayTime.ToString();
         ScoreManager.instance.DetermineCardType(handCardDeck);
         ScoreManager.instance.CalculateTotalEnergy(handCardDeck, buffDeck);
 
+        List<Card> cardsToRemove = new List<Card>();
         foreach (Card handCard in handCardDeck)
         {
-            deck.Add(handCard.cardData);
+            cardsToRemove.Add(handCard);
             Destroy(handCard.gameObject);
         }
-        handCardDeck.Clear();
-        DrawCard(5);
+        handCardDeck.RemoveAll(x => cardsToRemove.Contains(x));
+
+        if (!ScoreManager.instance.CheckIsDown())
+        {
+            DrawCard(5);
+        }
     }
 
     /// <summary>
