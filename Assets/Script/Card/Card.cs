@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.Events;
 
 [Serializable]
 public enum Suit
@@ -55,4 +57,6 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         isSelected = !isSelected;
     }
+
+
 }
