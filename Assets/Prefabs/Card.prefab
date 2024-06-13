@@ -334,10 +334,10 @@ MonoBehaviour:
     energy: 0
   isSelected: 0
   instantiateVisual: 1
-  moveSpeedLimit: 50
+  moveSpeedLimit: 1111
   selected: 0
   selectionOffset: 25
-  cardVisualPrefab: {fileID: 42412862356125959, guid: 0a0dfb66a6ef262479fd5f851f5728ec, type: 3}
+  cardVisualPrefab: {fileID: 6654244633541555976, guid: 0a0dfb66a6ef262479fd5f851f5728ec, type: 3}
   cardVisual: {fileID: 0}
   isHovering: 0
   isDragging: 0
