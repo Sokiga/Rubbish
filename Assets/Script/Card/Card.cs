@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
 
@@ -117,6 +120,7 @@ public class Card : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDra
     {
         isSelected = !isSelected;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     void Update()
@@ -253,6 +257,8 @@ public class Card : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDra
             Destroy(cardVisual.gameObject);
     }
 
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
 }

@@ -246,8 +246,11 @@ GameObject:
   - component: {fileID: 7604499324650530243}
   - component: {fileID: 2350495857767296732}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 2699776706258163253}
   - component: {fileID: 1872774262405729487}
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
   m_Layer: 5
@@ -337,6 +340,7 @@ MonoBehaviour:
     energy: 0
   isSelected: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   instantiateVisual: 1
   moveSpeedLimit: 1111
   selected: 0
@@ -423,6 +427,8 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 8, y: 8}
   m_UseGraphicAlpha: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &8124559880403889058

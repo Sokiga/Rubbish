@@ -484,6 +484,7 @@ CanvasRenderer:
   m_GameObject: {fileID: 184924662}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &244698512
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +560,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244698512}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &260719524 stripped
@@ -740,8 +743,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 244698513}
   - {fileID: 1426276659}
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
   - {fileID: 1632161460}
@@ -2203,6 +2209,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 1936403892644204091}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1287008115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,6 +2338,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426276658}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &1449024415
@@ -2574,7 +2583,11 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_BackGroundColor: {r: 1, g: 0.9256495, b: 0.7971698, a: 1}
+=======
+  m_BackGroundColor: {r: 0.86666673, g: 0.86666673, b: 0.86666673, a: 1}
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
   m_BackGroundColor: {r: 0.86666673, g: 0.86666673, b: 0.86666673, a: 1}
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
@@ -2719,6 +2732,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 7093463611036284191}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1795508510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2808,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795508510}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 =======
 >>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &1866426381
