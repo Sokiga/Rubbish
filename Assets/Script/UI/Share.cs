@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraShake : MonoBehaviour
 {
     public float shakeDuration = 0.2f; // 抖动持续时间  
-    public float shakeMagnitude = 0.1f; // 抖动幅度  
+    public float shakeMagnitude = 0.5f; // 抖动幅度  
 
     private Vector3 originalPosition;
     private float shakeEndTime;

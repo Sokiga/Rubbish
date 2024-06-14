@@ -87,6 +87,7 @@ public class Card : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDra
         background = transform.Find("background").GetComponent<Image>().sprite;
     }
 
+    [Obsolete]
     private void Start()
     {
         suitText.text = cardData.suit.ToString();
