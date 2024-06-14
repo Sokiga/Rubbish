@@ -3,9 +3,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+<<<<<<< HEAD
 using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 
 [Serializable]
 public enum Suit
@@ -114,6 +117,7 @@ public class Card : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDra
     {
         isSelected = !isSelected;
     }
+<<<<<<< HEAD
 
     void Update()
     {
@@ -249,4 +253,6 @@ public class Card : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDra
             Destroy(cardVisual.gameObject);
     }
 
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 }

@@ -483,6 +483,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184924662}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 --- !u!1 &244698512
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +559,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244698512}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &260719524 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 806493154265719270, guid: c27aeda489a8c7949ba12db4a3e2d23c, type: 3}
@@ -736,13 +739,15 @@ RectTransform:
   m_LocalScale: {x: 0.9814815, y: 0.9814815, z: 0.9814815}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD
   - {fileID: 244698513}
   - {fileID: 1426276659}
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
   - {fileID: 1632161460}
   - {fileID: 2000683693}
   - {fileID: 1267864764}
   - {fileID: 865868427}
-  - {fileID: 1795508511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2197,6 +2202,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5943358676255104344, guid: 50ecfd7a01b0fb449b97d878b4d2055d, type: 3}
   m_PrefabInstance: {fileID: 1936403892644204091}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1287008115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2331,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426276658}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &1449024415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,7 +2573,11 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
+<<<<<<< HEAD
   m_BackGroundColor: {r: 1, g: 0.9256495, b: 0.7971698, a: 1}
+=======
+  m_BackGroundColor: {r: 0.86666673, g: 0.86666673, b: 0.86666673, a: 1}
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2706,6 +2718,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4994789855584971947, guid: c27aeda489a8c7949ba12db4a3e2d23c, type: 3}
   m_PrefabInstance: {fileID: 7093463611036284191}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1795508510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,6 +2794,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795508510}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of 7a2ff7d (ArtMaterial)
 --- !u!1 &1866426381
 GameObject:
   m_ObjectHideFlags: 0
