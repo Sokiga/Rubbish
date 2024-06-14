@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rubbish-creature_0: -9009251458957850390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

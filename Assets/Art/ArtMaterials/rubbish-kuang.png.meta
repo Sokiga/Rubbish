@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rubbish-kuang_0: -6305451428144037796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

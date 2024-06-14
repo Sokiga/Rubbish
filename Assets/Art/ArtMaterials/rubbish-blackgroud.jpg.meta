@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rubbish-blackgroud_0: -7952077535868788831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

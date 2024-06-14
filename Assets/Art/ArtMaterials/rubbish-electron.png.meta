@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rubbish-electron_0: -454080270280042114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
