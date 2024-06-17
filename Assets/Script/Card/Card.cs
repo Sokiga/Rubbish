@@ -46,10 +46,6 @@ public class Card : MonoBehaviour, IPointerClickHandler
     Text energyText;
     Sprite background;
 
-    Sprite Biological;
-    Sprite Foundational;
-    Sprite Electronic;
-
     public CardData cardData;
     public bool isSelected;
 
@@ -61,7 +57,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
         suitText = transform.Find("suit").GetComponent<Text>();
         valueText = transform.Find("value").GetComponent<Text>();
         energyText = transform.Find("energy").GetComponent<Text>();
-        //background = transform.Find("background").GetComponent<Image>().sprite;
+        background = transform.Find("background").GetComponent<Image>().sprite;
     }
 
     [Obsolete]
@@ -70,7 +66,6 @@ public class Card : MonoBehaviour, IPointerClickHandler
         suitText.text = cardData.suit.ToString();
         valueText.text = cardData.value.ToString();
         energyText.text = cardData.energy.ToString();
-        UpdateBackground(); // 确保背景根据花色更新
     }
 
     public void InitCard(CardData cardData)
@@ -84,33 +79,24 @@ public class Card : MonoBehaviour, IPointerClickHandler
     }
     public void UpdateBackground()
     {
-        switch (cardData.suit)
+        string suitTextString = suitText.text;
+        if (suitTextString == "Biological")
         {
-            case Suit.Biological:
-                transform.Find("background").GetComponent<Image>().sprite = cardData.Biological;
-                break;
-            case Suit.Foundational:
-                transform.Find("background").GetComponent<Image>().sprite = cardData.Foundational;
-                break;
-            case Suit.Electronic:
-                transform.Find("background").GetComponent<Image>().sprite = cardData.Electronic;
-                break;
-            default:
-                Debug.LogError("Unknown suit type.");
-                break;
+            transform.Find("background").GetComponent<Image>().sprite = cardData.Biological;
         }
-
-        // 更新卡牌的背景
-        if (background != null)
+        else if (suitTextString == "Foundational")
         {
-            transform.Find("background").GetComponent<Image>().sprite = background;
+            transform.Find("background").GetComponent<Image>().sprite = cardData.Foundational;
+        }
+        else if (suitTextString == "Electronic")
+        {
+            transform.Find("background").GetComponent<Image>().sprite = cardData.Electronic;
         }
         else
         {
-            Debug.LogError("Background sprite not found for suit: " + cardData.suit);
+            Debug.LogError("Unknown suit: " + suitTextString);
         }
     }
-
 }
 
     

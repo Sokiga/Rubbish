@@ -411,11 +411,12 @@ MonoBehaviour:
     value: 0
     energy: 0
     background: {fileID: 0}
-    image: {fileID: 0}
+    image: {fileID: 7604499324650530243}
     Biological: {fileID: -9009251458957850390, guid: 87a17c28747e9354cb072324b3643b7a, type: 3}
     Foundational: {fileID: -454080270280042114, guid: 5e57068a89229a349b367e49aacb67f5, type: 3}
     Electronic: {fileID: -8993636940528768310, guid: 7f87fa9dadcfc994f830135dea77a4a6, type: 3}
   isSelected: 0
+  cardImage: {fileID: 7604499324650530243}
 --- !u!114 &1872774262405729487
 MonoBehaviour:
   m_ObjectHideFlags: 0
