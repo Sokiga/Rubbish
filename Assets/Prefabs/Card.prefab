@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1872774262405729487}
   - component: {fileID: 8537493166883673115}
   - component: {fileID: 8742477193808870366}
+  - component: {fileID: 6759379637889008508}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -409,6 +410,11 @@ MonoBehaviour:
     suit: 0
     value: 0
     energy: 0
+    background: {fileID: 0}
+    image: {fileID: 0}
+    Biological: {fileID: -9009251458957850390, guid: 87a17c28747e9354cb072324b3643b7a, type: 3}
+    Foundational: {fileID: -454080270280042114, guid: 5e57068a89229a349b367e49aacb67f5, type: 3}
+    Electronic: {fileID: -8993636940528768310, guid: 7f87fa9dadcfc994f830135dea77a4a6, type: 3}
   isSelected: 0
 --- !u!114 &1872774262405729487
 MonoBehaviour:
@@ -491,6 +497,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6759379637889008508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5598093706121822438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc28c5f88dc579d4a99224706ece130c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playCards:
+  - {fileID: 5584080917111243002}
+  vib: 1
+  elastic: 1
+  damageText: {fileID: 0}
 --- !u!1 &8124559880403889058
 GameObject:
   m_ObjectHideFlags: 0

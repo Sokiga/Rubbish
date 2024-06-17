@@ -22,6 +22,11 @@ public struct CardData
     public Suit suit;
     public int value;
     public int energy;
+    public Sprite background;
+    public Image image;
+    public Sprite Biological;
+    public Sprite Foundational;
+    public Sprite Electronic;
 }
 
 public static class ExtensionMethods
@@ -41,6 +46,10 @@ public class Card : MonoBehaviour, IPointerClickHandler
     Text energyText;
     Sprite background;
 
+    Sprite Biological;
+    Sprite Foundational;
+    Sprite Electronic;
+
     public CardData cardData;
     public bool isSelected;
 
@@ -52,7 +61,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
         suitText = transform.Find("suit").GetComponent<Text>();
         valueText = transform.Find("value").GetComponent<Text>();
         energyText = transform.Find("energy").GetComponent<Text>();
-        background = transform.Find("background").GetComponent<Image>().sprite;
+        //background = transform.Find("background").GetComponent<Image>().sprite;
     }
 
     [Obsolete]
@@ -61,8 +70,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
         suitText.text = cardData.suit.ToString();
         valueText.text = cardData.value.ToString();
         energyText.text = cardData.energy.ToString();
-
-
+        UpdateBackground(); // 确保背景根据花色更新
     }
 
     public void InitCard(CardData cardData)
@@ -74,6 +82,35 @@ public class Card : MonoBehaviour, IPointerClickHandler
     {
         isSelected = !isSelected;
     }
+    public void UpdateBackground()
+    {
+        switch (cardData.suit)
+        {
+            case Suit.Biological:
+                transform.Find("background").GetComponent<Image>().sprite = cardData.Biological;
+                break;
+            case Suit.Foundational:
+                transform.Find("background").GetComponent<Image>().sprite = cardData.Foundational;
+                break;
+            case Suit.Electronic:
+                transform.Find("background").GetComponent<Image>().sprite = cardData.Electronic;
+                break;
+            default:
+                Debug.LogError("Unknown suit type.");
+                break;
+        }
+
+        // 更新卡牌的背景
+        if (background != null)
+        {
+            transform.Find("background").GetComponent<Image>().sprite = background;
+        }
+        else
+        {
+            Debug.LogError("Background sprite not found for suit: " + cardData.suit);
+        }
+    }
+
 }
 
     
