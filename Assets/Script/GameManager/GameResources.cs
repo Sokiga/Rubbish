@@ -20,5 +20,7 @@ public class GameResources : MonoBehaviour
     }
 
     public List<BuffDataSO> buffDataSOs = new List<BuffDataSO>();
-
+    public Sprite Electronic;
+    public Sprite Foundational;
+    public Sprite Biological;
 }

@@ -65,3 +65,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce56dbe6c11f1d94b901640683449691, type: 2}
   - {fileID: 11400000, guid: d4ce6c3398436f04c9d7d67152401caf, type: 2}
   - {fileID: 11400000, guid: a03a0cb6fa5792d44a3e5b926d580ea3, type: 2}
+  Electronic: {fileID: -454080270280042114, guid: 5e57068a89229a349b367e49aacb67f5, type: 3}
+  Foundational: {fileID: -8993636940528768310, guid: 7f87fa9dadcfc994f830135dea77a4a6, type: 3}
+  Biological: {fileID: -9009251458957850390, guid: 87a17c28747e9354cb072324b3643b7a, type: 3}
