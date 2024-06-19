@@ -57,5 +57,7 @@ public class BuffStore : MonoBehaviour
     public void QuitStore()
     {
         UIManager.Instance.ConversionSelectPanel();
+        SelectedPanel.Instance.AddSelectCell();
+        ScoreManager.instance.InitializeTimes();
     }
 }

@@ -3285,6 +3285,18 @@ MonoBehaviour:
     technologyPoint: 3
   - targetScore: 100
     technologyPoint: 1
+  - targetScore: 600
+    technologyPoint: 1
+  - targetScore: 700
+    technologyPoint: 1
+  - targetScore: 800
+    technologyPoint: 1
+  - targetScore: 1000
+    technologyPoint: 1
+  - targetScore: 1200
+    technologyPoint: 1
+  - targetScore: 1400
+    technologyPoint: 1
   Section: 0
 --- !u!1 &2123872272
 GameObject:

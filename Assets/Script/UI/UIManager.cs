@@ -13,6 +13,7 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         GamePanel.SetActive(true);
         StorePanel.SetActive(false);
         SelectPanel.SetActive(false);
+        BuffStore.instance.isInStore = false;
     }
 
     public void ConversionStorePanel()
@@ -20,6 +21,7 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         GamePanel.SetActive(false);
         StorePanel.SetActive(true);
         SelectPanel.SetActive(false);
+        BuffStore.instance.isInStore = true;
     }
 
     public void ConversionSelectPanel()
@@ -27,5 +29,6 @@ public class UIManager : SingletonMonobehaviour<UIManager>
         GamePanel.SetActive(false);
         StorePanel.SetActive(false);
         SelectPanel.SetActive(true);
+        BuffStore.instance.isInStore = false;
     }
 }

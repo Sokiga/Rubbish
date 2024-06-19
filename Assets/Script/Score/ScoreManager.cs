@@ -42,6 +42,11 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        InitializeTimes();
+    }
+
+    public void InitializeTimes()
+    {
         currentPlayTime = maxPlayTime;
         UIPlayTime.text = currentPlayTime.ToString();
         currentDiscardTime = maxDiscardTime;
