@@ -113,6 +113,10 @@ public class ScoreManager : MonoBehaviour
 
                         MatchEnemyRatio(niu);
                     }
+                    else
+                    {
+                        InitializeUIAndData(1, 1);
+                    }
                 }
             }
         }
