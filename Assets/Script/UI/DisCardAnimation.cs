@@ -1,6 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.EventSystems; // 如果你使用的是Unity的Event Trigger System  
+using UnityEngine.EventSystems;  
 using UnityEngine.UI;
 
 public class DisCardAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
